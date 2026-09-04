@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI LifeLens - Profile</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        header {
+            background: #4f46e5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: 35px auto;
+            padding: 25px;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            text-align: center;
+            font-size: 60px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .save {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back {
+            width: 100%;
+            margin-top: 12px;
+            padding: 12px;
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🤖 AI LifeLens</h1>
+    <p>User Profile</p>
+</header>
+
+<div class="container">
+
+    <div class="profile-card">
+
+        <div class="icon">👤</div>
+
+        <h2>My Profile</h2>
+
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label>Age</label>
+        <input type="number" id="age" placeholder="Enter your age">
+
+        <button class="save" onclick="saveProfile()">
+            💾 Save Profile
+        </button>
+
+        <p id="message"></p>
+
+        <button class="back" onclick="window.location.href='dashboard.html'">
+            ← Back to Dashboard
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+function saveProfile() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let age = document.getElementById("age").value;
+
+    if (name === "" || email === "" || age === "") {
+        alert("Please fill all details.");
+        return;
+    }
+
+    localStorage.setItem("profileName", name);
+    localStorage.setItem("profileEmail", email);
+    localStorage.setItem("profileAge", age);
+
+    document.getElementById("message").innerHTML =
+        "✅ Profile saved successfully!";
+}
+
+</script>
+
+</body>
+</html>

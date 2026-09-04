@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI LifeLens - Mood Analysis</title>
+</head>
+
+<body>
+
+    <h1>😊 AI LifeLens</h1>
+
+    <h2>Mood Analysis</h2>
+
+    <p>How are you feeling today?</p>
+
+    <select id="mood">
+        <option>😊 Happy</option>
+        <option>😌 Calm</option>
+        <option>😐 Neutral</option>
+        <option>😔 Sad</option>
+        <option>😟 Stressed</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="analyzeMood()">
+        Analyze My Mood
+    </button>
+
+    <p id="result"></p>
+
+    <br>
+
+    <button onclick="window.location.href='dashboard.html'">
+        ← Back to Dashboard
+    </button>
+
+    <script>
+        function analyzeMood() {
+            let mood = document.getElementById("mood").value;
+
+            document.getElementById("result").innerHTML =
+                "Your selected mood is " + mood + ". Mood analysis completed successfully! 😊";
+        }
+    </script>
+
+</body>
+</html>

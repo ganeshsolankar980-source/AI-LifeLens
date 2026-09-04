@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI LifeLens - Register</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+</head><body><div class="container">
+
+    <div class="logo">✨</div>
+
+    <h1>Create Account</h1>
+
+    <p class="subtitle">Join AI LifeLens</p>
+
+    <!-- Name -->
+    <input
+        type="text"
+        id="name"
+        placeholder="Enter Your Name"
+    >
+
+    <!-- Email -->
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter Email"
+    >
+
+    <!-- Password -->
+    <input
+        type="password"
+        id="password"
+        placeholder="Create Password"
+    >
+
+    <button onclick="register()">
+        Create Account 🚀
+    </button>
+
+    <p id="message"></p>
+
+</div>
+
+
+<script>
+
+    // Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCp34m2bC18KMTCuuMrIqKf_4Fn87FXbds",
+        authDomain: "ailifelens-89b4e.firebaseapp.com",
+        projectId: "ailifelens-89b4e",
+        storageBucket: "ailifelens-89b4e.firebasestorage.app",
+        messagingSenderId: "1009517086364",
+        appId: "1:1009517086364:web:4fd8057c1b96baeac28f59"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Register Function
+    function register() {
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        const message = document.getElementById("message");
+
+        if (name === "" || email === "" || password === "") {
+            message.innerText = "⚠️ Please fill all fields.";
+            message.style.color = "red";
+            return;
+        }
+
+        if (password.length < 6) {
+            message.innerText = "⚠️ Password must be at least 6 characters.";
+            message.style.color = "red";
+            return;
+        }
+
+        message.innerText = "Creating account...";
+        message.style.color = "blue";
+
+        firebase.auth()
+            .createUserWithEmailAndPassword(email, password)
+
+            .then(function(userCredential) {
+
+                const user = userCredential.user;
+
+                // Save user's name in Firebase Authentication
+                return user.updateProfile({
+                    displayName: name
+                });
+
+            })
+
+            .then(function() {
+
+                message.innerText = "Account Created Successfully! 🎉";
+                message.style.color = "green";
+
+                console.log("Name:", firebase.auth().currentUser.displayName);
+
+            })
+
+            .catch(function(error) {
+
+                console.log(error);
+
+                message.style.color = "red";
+
+                if (error.code === "auth/email-already-in-use") {
+                    message.innerText = "❌ Email already registered.";
+                }
+                else if (error.code === "auth/invalid-email") {
+                    message.innerText = "❌ Invalid email.";
+                }
+                else if (error.code === "auth/weak-password") {
+                    message.innerText = "❌ Password must be at least 6 characters.";
+                }
+                else {
+                    message.innerText = "❌ " + error.message;
+                }
+
+            });
+    }
+
+</script>
+
+</body>
+</html>

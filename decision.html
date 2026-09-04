@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI LifeLens - Smart Decision</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head><body><div class="container">
+
+    <div class="logo">🤖</div>
+
+    <h1>Smart Decision</h1>
+
+    <p class="subtitle">
+        Tell LifeLens about your situation
+    </p>
+
+    <textarea
+        id="situation"
+        placeholder="Example: I have an exam tomorrow and 3 chapters are remaining..."
+        rows="6">
+    </textarea>
+
+    <button onclick="getDecision()">
+        Get AI Recommendation ✨
+    </button>
+
+    <div id="result" class="result"></div>
+
+    <button onclick="goBack()">
+        ← Back to Dashboard
+    </button>
+
+</div>
+
+
+<script>
+
+    function getDecision() {
+
+        const situation =
+            document.getElementById("situation").value.trim();
+
+        const result =
+            document.getElementById("result");
+
+        if (situation === "") {
+
+            result.innerHTML =
+                "⚠️ Please describe your situation first.";
+
+            return;
+        }
+
+
+        // Simple AI-style decision logic
+
+        const text = situation.toLowerCase();
+
+        let recommendation = "";
+        let reason = "";
+
+
+        if (
+            text.includes("exam") ||
+            text.includes("study") ||
+            text.includes("chapter") ||
+            text.includes("college")
+        ) {
+
+            recommendation =
+                "📚 Focus on your studies first.";
+
+            reason =
+                "Your situation appears to involve an academic priority. " +
+                "Start with the most important or difficult topic and " +
+                "divide the remaining work into smaller tasks.";
+
+        }
+
+        else if (
+            text.includes("time") ||
+            text.includes("deadline") ||
+            text.includes("urgent") ||
+            text.includes("tomorrow")
+        ) {
+
+            recommendation =
+                "⏰ Complete the most urgent task first.";
+
+            reason =
+                "You mentioned a time-related priority. " +
+                "Handle the task with the closest deadline first, " +
+                "then move to the remaining tasks.";
+
+        }
+
+        else if (
+            text.includes("project") ||
+            text.includes("assignment") ||
+            text.includes("work")
+        ) {
+
+            recommendation =
+                "🎯 Break the work into smaller tasks.";
+
+            reason =
+                "Start with the most important part of the project " +
+                "and complete it step by step instead of trying to " +
+                "finish everything at once.";
+
+        }
+
+        else {
+
+            recommendation =
+                "💡 Take a moment to prioritize your options.";
+
+            reason =
+                "Identify what is most important, what has the nearest " +
+                "deadline, and what will have the biggest positive impact. " +
+                "Start with that task.";
+
+        }
+
+
+        result.innerHTML = `
+
+            <h2>✨ LifeLens Recommendation</h2>
+
+            <h3>${recommendation}</h3>
+
+            <p>${reason}</p>
+
+            <p>
+                <strong>📝 Your situation:</strong>
+                ${situation}
+            </p>
+
+        `;
+    }
+
+
+    function goBack() {
+
+        window.location.href = "dashboard.html";
+
+    }
+
+</script>
+
+</body></html>

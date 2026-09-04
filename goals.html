@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI LifeLens - Goals</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        input {
+            width: 85%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 8px;
+        }
+
+        .add {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .back {
+            background: #555;
+            color: white;
+        }
+
+        li {
+            text-align: left;
+            padding: 10px;
+            margin: 8px;
+            background: #f1f1f1;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎯 AI LifeLens</h1>
+
+    <h2>Goals & Habits</h2>
+
+    <p>Add your daily goals:</p>
+
+    <input type="text" id="goalInput" placeholder="Enter your goal">
+
+    <br>
+
+    <button class="add" onclick="addGoal()">➕ Add Goal</button>
+
+    <ul id="goalList"></ul>
+
+    <br>
+
+    <button class="back" onclick="window.location.href='dashboard.html'">
+        ← Back to Dashboard
+    </button>
+
+</div>
+
+<script>
+    function addGoal() {
+
+        let goal = document.getElementById("goalInput").value.trim();
+
+        if (goal === "") {
+            alert("Please enter a goal.");
+            return;
+        }
+
+        let li = document.createElement("li");
+
+        li.innerHTML = "🎯 " + goal;
+
+        document.getElementById("goalList").appendChild(li);
+
+        document.getElementById("goalInput").value = "";
+    }
+</script>
+
+</body>
+</html>

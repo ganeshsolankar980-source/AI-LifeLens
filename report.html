@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI LifeLens - Life Report</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .report {
+            background: #f1f1f1;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .item {
+            padding: 12px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 8px;
+        }
+
+        .generate {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .back {
+            background: #555;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI LifeLens</h1>
+
+    <h2>📊 Life Report</h2>
+
+    <p>Generate your personal AI LifeLens report.</p>
+
+    <button class="generate" onclick="generateReport()">
+        📄 Generate Report
+    </button>
+
+    <div id="report" class="report" style="display:none;">
+
+        <h3>✨ Your LifeLens Report</h3>
+
+        <div class="item">
+            📚 <b>Study:</b>
+            Maintain a consistent study routine.
+        </div>
+
+        <div class="item">
+            😊 <b>Mood:</b>
+            Continue tracking your mood regularly.
+        </div>
+
+        <div class="item">
+            🎯 <b>Goals:</b>
+            Focus on small and achievable goals.
+        </div>
+
+        <div class="item">
+            ⏰ <b>Time Management:</b>
+            Plan your daily tasks and priorities.
+        </div>
+
+        <div class="item">
+            💡 <b>AI Suggestion:</b>
+            Stay consistent and review your progress regularly.
+        </div>
+
+    </div>
+
+    <br>
+
+    <button class="back" onclick="window.location.href='dashboard.html'">
+        ← Back to Dashboard
+    </button>
+
+</div>
+
+<script>
+    function generateReport() {
+        document.getElementById("report").style.display = "block";
+    }
+</script>
+
+</body>
+</html>

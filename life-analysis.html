@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI LifeLens - AI Life Analysis</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        header {
+            background: #4f46e5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            text-align: center;
+            font-size: 60px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .analyze {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .back {
+            background: #555;
+            color: white;
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .result-item {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🤖 AI LifeLens</h1>
+    <p>AI Life Analysis</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="icon">🧠</div>
+
+        <h2>Smart AI Life Analysis</h2>
+
+        <p style="text-align:center;">
+            Tell AI LifeLens about your daily routine.
+        </p>
+
+        <textarea id="lifeText"
+        placeholder="Example: I study for 2 hours daily but I have difficulty managing my time and completing my goals."></textarea>
+
+        <button class="analyze" onclick="analyzeLife()">
+            🤖 Analyze With AI
+        </button>
+
+        <div id="result"></div>
+
+        <button class="back"
+        onclick="window.location.href='dashboard.html'">
+            ← Back to Dashboard
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+function analyzeLife() {
+
+    let text = document.getElementById("lifeText").value.toLowerCase().trim();
+
+    if (text === "") {
+        alert("Please enter information about your daily life.");
+        return;
+    }
+
+    let study = "";
+    let time = "";
+    let goal = "";
+    let routine = "";
+
+    // Study analysis
+    if (
+        text.includes("study") ||
+        text.includes("exam") ||
+        text.includes("college") ||
+        text.includes("learning")
+    ) {
+        study = "📚 Study: Create a fixed study schedule and revise regularly.";
+    } else {
+        study = "📚 Study: Try to include a regular learning session in your daily routine.";
+    }
+
+    // Time analysis
+    if (
+        text.includes("time") ||
+        text.includes("busy") ||
+        text.includes("late") ||
+        text.includes("manage")
+    ) {
+        time = "⏰ Time Management: Prioritize important tasks and avoid unnecessary distractions.";
+    } else {
+        time = "⏰ Time Management: Plan your important tasks at the beginning of the day.";
+    }
+
+    // Goal analysis
+    if (
+        text.includes("goal") ||
+        text.includes("target") ||
+        text.includes("improve")
+    ) {
+        goal = "🎯 Goals: Break large goals into smaller daily tasks.";
+    } else {
+        goal = "🎯 Goals: Set one or two achievable goals for each day.";
+    }
+
+    // Routine analysis
+    if (
+        text.includes("routine") ||
+        text.includes("daily") ||
+        text.includes("habit")
+    ) {
+        routine = "🌱 Routine: Keep your daily routine consistent and review your progress.";
+    } else {
+        routine = "🌱 Routine: Build a simple and consistent daily routine.";
+    }
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("result").innerHTML =
+
+        "<h3>✨ AI LifeLens Analysis</h3>" +
+
+        "<div class='result-item'>" +
+        study +
+        "</div>" +
+
+        "<div class='result-item'>" +
+        time +
+        "</div>" +
+
+        "<div class='result-item'>" +
+        goal +
+        "</div>" +
+
+        "<div class='result-item'>" +
+        routine +
+        "</div>" +
+
+        "<div class='result-item'>" +
+        "💡 AI Suggestion: Focus on small improvements and maintain consistency." +
+        "</div>";
+}
+
+</script>
+
+</body>
+</html>
