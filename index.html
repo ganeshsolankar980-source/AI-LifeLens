@@ -1,44 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI LifeLens</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI LifeLens</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+
+</head><body><div class="container">
+
+    <div class="logo">🧠</div>
+
+    <h1>AI LifeLens</h1>
+
+    <p class="subtitle">
+        Your Smart Daily Decision Assistant
+    </p>
+
+    <button id="startBtn">
+        Get Started 🚀
+    </button>
+
+</div>
+
 <script src="js/firebase.js"></script>
-  <script>
-    console.log("Firebase connected successfully! 🔥");
-    console.log("Auth:", auth);
-    console.log("Firestore:", db);
-    
 
-<body>
+<script>
+    console.log("Firebase connected successfully!");
 
-    <div class="container">
+    document.getElementById("startBtn").addEventListener("click", function() {
+        window.location.href = "./dashboard.html";
+    });
+</script>
 
-        <div class="logo">🧠</div>
-
-        <h1>AI LifeLens</h1>
-
-        <p class="subtitle">
-            Your Smart Daily Decision Assistant
-        </p>
-
-        <button id="startBtn">
-            Get Started 🚀
-        </button>
-
-    </div>
-
-    <script>
-        document.getElementById("startBtn").addEventListener("click", function() {
-            window.location.href = "./dashboard.html";
-        });
-    </script>
-
-</body>
-</html>
+</body></html>
